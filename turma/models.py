@@ -5,7 +5,7 @@ from curso.models import Curso
 
 class Turma(models.Model):
     nome = models.CharField(max_length=255)
-    ano = models.DateField()
+    ano = models.CharField(max_length=10)#Neste campo será para o usuário digitar o ano da turma, por exemplo 2022.1
     curso_turma = models.ForeignKey(Curso,on_delete=models.CASCADE)
 
     def __str__(self):

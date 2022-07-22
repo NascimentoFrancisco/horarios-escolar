@@ -1,13 +1,12 @@
 from django.db import models
-
+from disponibilidade.models import Disponibilidade
 # Create your models here.
 
 class Professor(models.Model):
-    #Está pendente a definição de disponibilidade
     nome = models.CharField(max_length=255)
     suap = models.CharField(max_length=100, unique=True)
-    coordenador = models.BigAutoField(default=False)
-    
+    coordenador = models.BooleanField(default=False)
+    disponibilidade_professor = models.ManyToManyField(Disponibilidade)
     email = models.EmailField()
     telefone = models.CharField(max_length=16)
 
