@@ -6,5 +6,10 @@
         <p>Seja bem vindo!</p>
         <p>Este sistema irá gerar seu horário escolar</p>
         <h2>LINKS</h2>
+        <a href="{% url 'professores:home_professor' %}">Professores</a><br>
+        <a href="{% url 'disponibilidades:home_disponibilidade' %}">Disponibilidades</a><br>
+        <a href="{% url 'disciplinas:home_disciplina' %}">Disciplinas</a><br>
+        <a href="{% url 'cursos:home_curso' %}">Cursos</a><br>
+        <a href="{% url 'turmas:home_turma' %}">Turmas</a>
     </body>
 </html>

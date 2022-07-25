@@ -11,8 +11,9 @@ class Create_curso(CreateView):
     model = Curso
     template_name = 'curso/create_curso.html'
     fields = ['nome',]
-    #success_url = reverse_lazy('curso/home_curso.html')
+    success_url = reverse_lazy('cursos:home_curso')
 
     def form_valid(self, form):
         return super().form_valid(form)
 
+create_curso = Create_curso.as_view()
