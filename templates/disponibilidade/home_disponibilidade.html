@@ -1,12 +1,9 @@
-<html>
-    <head>
-        <title>Django gerador de horarios</title>
-    </head>
-    <body>
-        <p>Seja bem vindo!</p>
-        <p>Aqui você administrará as disponibilidades dos professores dessa escola</p>
-        <h2>LINKS</h2>
-        <a href="{% url 'disponibilidades:create_disponibilidade' %}">Criar disponibilidades</a><br>
-        <a href="{% url 'disponibilidades:list_disponibilidade' %}">Listar disciplinas</a>
-    </body>
-</html>
+{% extends '../home.html' %}
+
+{% block container %}
+    <p>Aqui você administrará as disponibilidades dos professores dessa escola</p>
+    <h2>LINKS</h2>
+    <a href="{% url 'disponibilidades:create_disponibilidade' %}">Criar disponibilidade</a><br>
+    <a href="{% url 'disponibilidades:list_disponibilidade' %}">Listar disciplina</a>
+{% endblock  %}
+
