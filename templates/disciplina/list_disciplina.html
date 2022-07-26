@@ -1,0 +1,12 @@
+
+<h1>Lista de disciplinas</h1>
+<br>
+    {% for disciplina in object_list %}      
+        <p>Nome: {{ disciplina.nome }}   <a href="{% url 'disciplinas:update_disciplina' disciplina.id %}">Alterar</a>
+            <a href="{% url 'disciplinas:delete_disciplina' disciplina.id %}">Apagar</a>
+        </p>
+        <p>Professor da disciplina: {{ disciplina.profesor_disciplina.nome}}</p>
+        <p>Curso da disciplina: {{ disciplina.carga_horaria}}</p>
+        <p>Carga horária: {{ disciplina.curso_disciplina.nome}}</p>
+        <br>
+    {% endfor %}

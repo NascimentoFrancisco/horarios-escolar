@@ -1,0 +1,9 @@
+
+<h1>Lista de cursos</h1>
+<br>
+    {% for curso in object_list %}      
+        <p>Nome: {{ curso.nome }}   <a href="{% url 'cursos:update_curso' curso.id %}">Alterar</a>
+            <a href="{% url 'cursos:delete_curso' curso.id %}">Apagar</a>
+        </p>
+        
+    {% endfor %}

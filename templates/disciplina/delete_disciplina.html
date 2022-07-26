@@ -1,0 +1,9 @@
+<h2>Exclusão de disciplinas</h2>
+<p>Deseja realmente excluir a disciplina: <strong>{{ object }}</strong>?</p>
+<form method="POST" class="table" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="save btn btn-danger ">Delete</button>
+</form>
