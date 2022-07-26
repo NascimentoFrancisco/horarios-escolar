@@ -1,11 +1,11 @@
-<html>
-    <head>
-        <title>Django gerador de horarios</title>
-    </head>
+{% extends '../home.html' %}
+
     <body>
+        {% block container %}
         <p>Seja bem vindo!</p>
         <p>Aqui você administrará os professores dessa escola</p>
         <h2>LINKS</h2>
         <a href="{% url 'professores:create_professor' %}">Criar professores</a>
+        {% endblock %}
     </body>
 </html>
