@@ -1,0 +1,9 @@
+<h2>Exclusão de turmas</h2>
+<p>Deseja realmente excluir a turma: <strong>{{ object }}</strong>?</p>
+<form method="POST" class="table" enctype="multipart/form-data">
+{% csrf_token %}
+    <div class="form-group">
+        {{ form.as_p }}
+    </div>
+    <button type="submit" class="save btn btn-danger ">Delete</button>
+</form>

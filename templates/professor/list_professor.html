@@ -1,0 +1,15 @@
+
+<h1>Lista de disponibilidades de professores</h1>
+<br>
+    {% for professor in object_list %}
+        <p>Nome: {{ professor.nome }}   <a href="{% url 'professores:update_professor' professor.id %}">Alterar</a>
+            <a href="{% url 'professores:delete_professor' professor.id %}">Apagar</a>
+        </p>
+        <p>SUAP: {{ professor.suap}}</p>
+        <p>Coordenador: {{ professor.coordenador}}</p>
+        <p>Disponibilidades: </p>
+        {% for disponibilidade in professor.disponibilidade_professor.all %}
+            {{disponibilidade}}<br> 
+        {% endfor %}
+        <br>
+    {% endfor %}

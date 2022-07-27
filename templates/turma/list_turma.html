@@ -1,0 +1,11 @@
+
+<h1>Lista de disponibilidades de turmas</h1>
+<br>
+    {% for turma in object_list %}
+        <p>Nome: {{ turma.nome }}   <a href="{% url 'turmas:update_turma' turma.id %}">Alterar</a>
+            <a href="{% url 'turmas:delete_turma' turma.id %}">Apagar</a>
+        </p>
+        <p>Ano: {{ turma.ano}}</p>
+        <p>Curso da turma: {{ turma.curso_turma.nome}}</p>
+        <br>
+    {% endfor %}
