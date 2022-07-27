@@ -1,11 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView,ListView,DeleteView
+from django.views.generic import View,CreateView, UpdateView,ListView,DeleteView
 from turma.models import Turma
 from django.urls import reverse_lazy
 # Create your views here.
 
-def home_turma(request):
-    return render(request, 'turma/home_turma.html')
+class Home_turma(View):
+    
+    def get(self, request):
+        return render(request, 'turma/home_turma.html')
 
 class Create_turma(CreateView):
     model = Turma

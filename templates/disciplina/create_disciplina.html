@@ -1,9 +1,11 @@
-{% block content %}   
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
     <h2>Cadastro de disciplinas</h2>
     <form method="POST" class="table" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="form-group">
-            {{ form.as_p }}
+            {{form|crispy}}
         </div>
         <button type="submit" class="save btn btn-success ">Salvar</button>
     </form>

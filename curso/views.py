@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from curso.models import Curso
-from django.views.generic import CreateView, UpdateView,ListView, DeleteView
+from django.views.generic import View,CreateView, UpdateView,ListView, DeleteView
 from django.urls import reverse_lazy
 # Create your views here.
 
-def home_curso(request):
-    return render(request, 'curso/home_curso.html')
+class Home_curso(View):
+    
+    def get(self, request):
+        return render(request, 'curso/home_curso.html')
 
 class Create_curso(CreateView):
     model = Curso

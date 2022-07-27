@@ -4,7 +4,7 @@ from . import views
 app_name='disponibilidades'
 
 urlpatterns = [
-    path('home/',views.home_disponibilidade,name='home_disponibilidade'),
+    path('home/',views.Home_disponibilidade.as_view(),name='home_disponibilidade'),
     path('registro/', views.Create_dispnibilidade.as_view(), name='create_disponibilidade'),   
     path('lista/', views.List_disponibilidade.as_view(), name='list_disponibilidade'),   
     path('update/<int:pk>/', views.Update_disponibilidade.as_view(), name='update_disponibilidade'),

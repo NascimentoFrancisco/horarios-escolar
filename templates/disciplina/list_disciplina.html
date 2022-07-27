@@ -1,12 +1,53 @@
-
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
 <h1>Lista de disciplinas</h1>
-<br>
-    {% for disciplina in object_list %}      
-        <p>Nome: {{ disciplina.nome }}   <a href="{% url 'disciplinas:update_disciplina' disciplina.id %}">Alterar</a>
-            <a href="{% url 'disciplinas:delete_disciplina' disciplina.id %}">Apagar</a>
-        </p>
-        <p>Professor da disciplina: {{ disciplina.profesor_disciplina.nome}}</p>
-        <p>Curso da disciplina: {{ disciplina.carga_horaria}}</p>
-        <p>Carga horária: {{ disciplina.curso_disciplina.nome}}</p>
-        <br>
-    {% endfor %}
+
+<table  class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Disciplina
+            </th>
+            <th>
+                Professor da disciplina
+            </th>
+            <th>
+                Curso da disciplina
+            </th>
+            <th>
+                Carga horária
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for disciplina in object_list %}
+        <tr>
+            <td>
+                {{ disciplina.nome }}
+            </td>
+            <td>
+                {{ disciplina.profesor_disciplina.nome }}
+            </td>
+            <td>
+                {{ disciplina.curso_disciplina.nome }}
+            </td>
+            <td>
+                {{ disciplina.carga_horaria}} 
+            </td>
+            <td>
+                <a href="{% url 'disciplinas:update_disciplina' disciplina.id %}" class="text-primary">
+                    Alterar
+                </a>
+                <a href="{% url 'disciplinas:delete_disciplina' disciplina.id %}" class="text-danger">
+                    Apagar
+                </a>
+            </td>
+        </tr>
+        {% endfor %}      
+    </tbody>
+</table>
+{% endblock %}

@@ -1,12 +1,17 @@
-<html>
-    <head>
-        <title>Django gerador de horarios</title>
-    </head>
+{% extends '../home.html' %}
+
     <body>
-        <p>Seja bem vindo!</p>
+        {% block container %}
+        <h2>Página dos professores</h2>
         <p>Aqui você administrará os professores dessa escola</p>
-        <h2>LINKS</h2>
-        <a href="{% url 'professores:create_professor' %}">Criar professores</a><br>
-        <a href="{% url 'professores:list_professor' %}">Listar professores</a>
+        <h3>Opções</h3>
+        <a href="{% url 'professores:create_professor' %}">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Cadastrar professor</button>
+        </a>
+        <br>
+        <a href="{% url 'professores:list_professor' %}">
+            <button type="button" class="btn btn-primary btn-lg btn-block">Listar professores</button>
+        </a>
+        {% endblock %}
     </body>
 </html>

@@ -1,15 +1,50 @@
-
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
 <h1>Lista de disponibilidades de professores</h1>
-<br>
-    {% for professor in object_list %}
-        <p>Nome: {{ professor.nome }}   <a href="{% url 'professores:update_professor' professor.id %}">Alterar</a>
-            <a href="{% url 'professores:delete_professor' professor.id %}">Apagar</a>
-        </p>
-        <p>SUAP: {{ professor.suap}}</p>
-        <p>Coordenador: {{ professor.coordenador}}</p>
-        <p>Disponibilidades: </p>
-        {% for disponibilidade in professor.disponibilidade_professor.all %}
-            {{disponibilidade}}<br> 
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Nome
+            </th>
+            <th>
+                SUAP
+            </th>
+            <th>
+                Coordenador
+            </th>
+            <th>
+                Disponibilidades
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for professor in object_list %}
+        <tr>
+            <td>
+                {{ professor.nome }}
+            </td>
+            <td>
+                {{ professor.suap}}
+            </td>
+            <td>
+                {{ professor.coordenador}}
+            </td>
+            <td>
+                {% for disponibilidade in professor.disponibilidade_professor.all %}
+                    {{disponibilidade}}<br> 
+                {% endfor %}
+            </td>
+            <td>
+                <a href="{% url 'professores:update_professor' professor.id %}" class="text-primary">Alterar</a>
+                <a href="{% url 'professores:delete_professor' professor.id %}" class="text-danger">Apagar</a>
+            </td>
+        </tr>
         {% endfor %}
-        <br>
-    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

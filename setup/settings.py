@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-cmw9226%1lmyzew8*g)&sd!$%1(8*7yh&$)o3##ag%r4-_87a$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    'crispy_forms',
     
     'accounts',
     'curso',
@@ -135,3 +137,4 @@ STATICFILES_DIRS = [
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.Usuario'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

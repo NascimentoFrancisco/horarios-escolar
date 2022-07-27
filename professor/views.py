@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import CreateView, UpdateView,ListView,DeleteView
+from django.views.generic import View,CreateView, UpdateView,ListView,DeleteView
 from professor.models import Professor
 from django.urls import reverse_lazy
 # Create your views here.
 
-
-def home_professor(request):
-    return render(request, 'professor/home_professor.html')
-
+class Home_professor(View):
+    
+    def get(self, request):
+        return render(request, 'professor/home_professor.html')
 
 class Create_professor(CreateView):
     model = Professor

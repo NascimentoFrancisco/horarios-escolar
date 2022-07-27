@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from django.views.generic import CreateView,UpdateView,ListView,DeleteView
+from django.views.generic import View,CreateView,UpdateView,ListView,DeleteView
 from disponibilidade.models import Disponibilidade
 from django.urls import reverse_lazy
 # Create your views here.
 
-
-def home_disponibilidade(request):
-    return render(request, 'disponibilidade/home_disponibilidade.html')
-
+class Home_disponibilidade(View):
+    
+    def get(self, request):
+        return render(request, 'disponibilidade/home_disponibilidade.html')
 
 class Create_dispnibilidade(CreateView):
     model = Disponibilidade

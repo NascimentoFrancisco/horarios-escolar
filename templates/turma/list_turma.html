@@ -1,11 +1,48 @@
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
 
-<h1>Lista de disponibilidades de turmas</h1>
-<br>
-    {% for turma in object_list %}
-        <p>Nome: {{ turma.nome }}   <a href="{% url 'turmas:update_turma' turma.id %}">Alterar</a>
-            <a href="{% url 'turmas:delete_turma' turma.id %}">Apagar</a>
-        </p>
-        <p>Ano: {{ turma.ano}}</p>
-        <p>Curso da turma: {{ turma.curso_turma.nome}}</p>
-        <br>
-    {% endfor %}
+<h1>Lista de  turmas</h1>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                Turma
+            </th>
+            <th>
+                Ano
+            </th>
+            <th>
+                Curso da turma
+            </th>
+            <th>
+                Opções
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for turma in object_list %}
+        <tr>
+            <td>
+                {{ turma.nome }}
+            </td>
+            <td>
+                {{ turma.ano }}
+            </td>
+            <td>
+                {{ turma.curso_turma.nome }}
+            </td>
+            <td>
+                <a href="{% url 'turmas:update_turma' turma.id %}" class="text-primary">
+                    Alterar
+                </a>
+                
+                <a href="{% url 'turmas:delete_turma' turma.id %}" class="text-danger">
+                    Apagar
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

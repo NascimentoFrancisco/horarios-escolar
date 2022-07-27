@@ -1,9 +1,22 @@
-
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
 <h1>Lista de cursos</h1>
 <br>
-    {% for curso in object_list %}      
-        <p>Nome: {{ curso.nome }}   <a href="{% url 'cursos:update_curso' curso.id %}">Alterar</a>
-            <a href="{% url 'cursos:delete_curso' curso.id %}">Apagar</a>
-        </p>
-        
+    {% for curso in object_list %}         
+        <tr>
+            <td>
+                <p><strong>Curso:</strong> {{curso.nome}} 
+            
+                <a href="{% url 'cursos:update_curso' curso.id %}" class="text-primary">
+                    Alterar
+                </a>
+            
+                <a href="{% url 'cursos:delete_curso' curso.id %}" class="text-danger">
+                    Apagar
+                </a>
+                </p>
+            </td>   
+        </tr>
     {% endfor %}
+{% endblock %}

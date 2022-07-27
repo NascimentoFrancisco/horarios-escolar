@@ -1,9 +1,23 @@
 
+{% extends '../home.html' %}
+{% load crispy_forms_tags %}
+{% block container %}
 <h1>Lista de disponibilidades de professores</h1>
 <br>
     {% for disponibilidade in object_list %}
-        <p>ID: {{disponibilidade.id}}</p>      
-        <p>Nome: {{ disponibilidade.dia_semana }}   <a href="{% url 'disponibilidades:update_disponibilidade' disponibilidade.id %}">Alterar</a>
-            <a href="{% url 'disponibilidades:delete_disponibilidade' disponibilidade.id %}">Apagar</a>
-        </p><br>
+        <tr>
+            <td>
+                <p><strong>Disponibilidade:</strong>{{ disponibilidade.dia_semana }}
+            
+                <a href="{% url 'disponibilidades:update_disponibilidade' disponibilidade.id  %}" class="text-primary">
+                    Alterar
+                </a>
+            
+                <a href="{% url 'disponibilidades:delete_disponibilidade' disponibilidade.id %}" class="text-danger">
+                    Apagar
+                </a>
+                </p>
+            </td>   
+        </tr>
     {% endfor %}
+{% endblock %}
