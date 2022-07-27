@@ -16,6 +16,9 @@
                 Curso da turma
             </th>
             <th>
+                Disciplinas
+            </th>
+            <th>
                 Opções
             </th>
         </tr>
@@ -31,6 +34,11 @@
             </td>
             <td>
                 {{ turma.curso_turma.nome }}
+            </td>
+            <td>
+                {% for disciplina in turma.disciplinas_turma.all %}
+                    {{disciplina}}.<br> 
+                {% endfor %}
             </td>
             <td>
                 <a href="{% url 'turmas:update_turma' turma.id %}" class="text-primary">

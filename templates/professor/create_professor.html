@@ -5,7 +5,7 @@
     <form method="POST" class="table" enctype="multipart/form-data">
     {% csrf_token %}
         <div class="form-group">
-            {% crispy form %}
+            {{form|crispy}}
         </div>
         <button type="submit" class="save btn btn-success ">Salvar</button>
     </form>

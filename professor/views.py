@@ -13,7 +13,7 @@ class Create_professor(CreateView):
     model = Professor
     template_name = 'professor/create_professor.html'
     fields = ['nome','suap','coordenador','disponibilidade_professor','email','telefone']
-    success_url = reverse_lazy('professores:home_professor')
+    success_url = reverse_lazy('professores:list_professor')
 
     def form_valid(self, form):
         return super().form_valid(form)
